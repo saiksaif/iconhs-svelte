@@ -1,5 +1,5 @@
 <script>
-	// Libraries 2.0
+	// Libraries 2.0 working
 	import 'bootstrap';
   	import { writable } from 'svelte/store'; 
 
