@@ -1,7 +1,7 @@
 <script>
-	// Libraries
+	// Libraries 2.0
 	import 'bootstrap';
-  	import { writable } from 'svelte/store';
+  	import { writable } from 'svelte/store'; 
 
 	// Components
 	import Navbar from './lib/components/layout/navbar.svelte';
