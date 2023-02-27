@@ -4,17 +4,6 @@
     import NursingPogs from "../content/nursingPogs.svelte";
     import Curriculum from "../content/curriculum.svelte";
     import FactSheet from "../content/factSheet.svelte";
-
-    import { onMount } from 'svelte';
-
-    function changeUrl(url) {
-    window.history.pushState({}, '', url);
-    }
-
-    onMount(() => {
-        // Change the URL to '/about-us' after the component is mounted
-        changeUrl('/Admissions/');
-    });
 </script>
 
 <svelte:head>

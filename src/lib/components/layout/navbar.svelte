@@ -2,30 +2,38 @@
     export let currentPage;
 
     import PopupNav from "./popupNav.svelte";
+  	import { writable } from 'svelte/store'; 
 
     let y;
+
+    let aBtn = writable(
+		localStorage.getItem('aBtn') || "1"
+	);
+	aBtn.subscribe(value => {
+		localStorage.setItem('aBtn', value);
+	});
 </script> 
 
 <svelte:window bind:scrollY={y}/>
 <div class="thisMain">
     <div class="upperLower" style="position:fixed;z-index:1; width: 100%">
         <div class="upper">
-            <a href="/" on:click={() => currentPage.set("Academics")}>Academics</a>
-            <a href="/" on:click={() => currentPage.set("Student")}>Student Life</a>
-            <a href="/" on:click={() => currentPage.set("Careers")}>Career Services</a>
-            <a href="/" on:click={() => currentPage.set("News")}>News & Events</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 5} on:click={() => aBtn.set("5")} on:click={() => currentPage.set("Academics")}>Academics</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 6} on:click={() => aBtn.set("6")} on:click={() => currentPage.set("Student")}>Student Life</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 7} on:click={() => aBtn.set("7")} on:click={() => currentPage.set("Careers")}>Career Services</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 8} on:click={() => aBtn.set("8")} on:click={() => currentPage.set("News")}>News & Events</a>
         </div>
         <div class="lower">
             <div class="navTitleLower">
-                <img class="title1" src="assets/title/titlePurple2.png" alt="">
+                <img class="title1" src="assets/title/titlePurple2.png" alt="Inspire College of Nursing and Health Sciences">
             </div>
 
             <div style="display: flex;">
                 <div class="navLinksLower">
-                    <a href="/" on:click={() => currentPage.set("About")}>Home</a>
-                    <a href="/" on:click={() => currentPage.set("About")}>About Us</a>
-                    <a href="/" on:click={() => currentPage.set("Admissions")}>Admissions</a>
-                    <a href="/" on:click={() => currentPage.set("Contact")}>Contact Us</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 1} on:click={() => aBtn.set("1")} on:click={() => currentPage.set("Home")}>Home</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 2} on:click={() => aBtn.set("2")} on:click={() => currentPage.set("About")}>About Us</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 3} on:click={() => aBtn.set("3")} on:click={() => currentPage.set("Admissions")}>Admissions</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 4} on:click={() => aBtn.set("4")} on:click={() => currentPage.set("Contact")}>Contact Us</a>
                 </div>            
 
                 <div class="searchModal">
@@ -58,6 +66,10 @@
 </div>
 
 <style>
+    .activeU {
+        --underline-width: 100%;
+    }
+
     .thisMain {
         width: 100%;
     }

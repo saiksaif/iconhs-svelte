@@ -1,7 +1,16 @@
 <script>
     export let currentPage;
 
+  	import { writable } from 'svelte/store'; 
+
     let width;
+
+    let aBtn = writable(
+		localStorage.getItem('aBtn') || "1"
+	);
+	aBtn.subscribe(value => {
+		localStorage.setItem('aBtn', value);
+	});
 </script>
 
 <svelte:window bind:innerWidth={width}/>
@@ -9,10 +18,10 @@
 <div class="thisMain">
     <div class="upperLower" style="position:fixed;z-index:1; width: 100%;">
         <div class="upper" style="">
-            <a href="/" on:click={() => currentPage.set("Academics")}>Academics</a>
-            <a href="/" on:click={() => currentPage.set("Student")}>Student Life</a>
-            <a href="/" on:click={() => currentPage.set("Careers")}>Career Services</a> 
-            <a href="/" on:click={() => currentPage.set("News")}>News & Events</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 5} on:click={() => aBtn.set("5")} on:click={() => currentPage.set("Academics")}>Academics</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 6} on:click={() => aBtn.set("6")} on:click={() => currentPage.set("Student")}>Student Life</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 7} on:click={() => aBtn.set("7")} on:click={() => currentPage.set("Careers")}>Career Services</a>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 8} on:click={() => aBtn.set("8")} on:click={() => currentPage.set("News")}>News & Events</a>
         </div>
         <div class="lower">
             <div class="navTitleLower">
@@ -21,10 +30,10 @@
 
             <div style="display: flex;">
                 <div class="navLinksLower">
-                    <a href="/" on:click={() => currentPage.set("Home")}>Home</a>
-                    <a href="/" on:click={() => currentPage.set("About")}>About Us</a>
-                    <a href="/" on:click={() => currentPage.set("Admissions")}>Admissions</a>
-                    <a href="/" on:click={() => currentPage.set("Contact")}>Contact Us</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 1} on:click={() => aBtn.set("1")} on:click={() => currentPage.set("Home")}>Home</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 2} on:click={() => aBtn.set("2")} on:click={() => currentPage.set("About")}>About Us</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 3} on:click={() => aBtn.set("3")} on:click={() => currentPage.set("Admissions")}>Admissions</a>
+                    <a href="/" class:activeU={localStorage.getItem('aBtn') == 4} on:click={() => aBtn.set("4")} on:click={() => currentPage.set("Contact")}>Contact Us</a>
                 </div>            
 
                 <div class="searchModal">
@@ -48,7 +57,7 @@
 
             <div class="searchBarArea">
                 <div class="inputArea d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Enter your search term here..." style="border-radius: 0; font-size: medium;">
+                    <input class="form-control me-2" type="search" placeholder="Search..." style="border-radius: 0; font-size: medium;">
                     <i class="fa fa-search" style="color: #132d76; font-size: x-large;"></i>
                 </div>
             </div>
@@ -56,7 +65,7 @@
             <div class="goTos">
                 {#if width >= 1200}
                     <div class="section1 section">
-                        <a href="/" class="display-6">About Us</a>
+                        <a href="/" class="h2">About Us</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -67,7 +76,7 @@
                         </div>
                     </div>
                     <div class="section2 section">
-                        <a href="/" class="display-6">Admission</a>
+                        <a href="/" class="h2">Admission</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -78,7 +87,7 @@
                         </div>
                     </div>
                     <div class="section3 section">
-                        <a href="/" class="display-6">Programs</a>
+                        <a href="/" class="h2">Programs</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -89,7 +98,7 @@
                         </div>
                     </div>
                     <div class="section4 section">
-                        <a href="/" class="display-6">Campus</a>
+                        <a href="/" class="h2">Campus</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -100,7 +109,7 @@
                         </div>
                     </div>
                     <div class="section5 section">
-                        <a href="/" class="display-6">Student Life</a>
+                        <a href="/" class="h2">Student Life</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -119,11 +128,15 @@
 </div>
 
 <style>
+    .activeU {
+        --underline-width: 100%;
+    }
+
     .main {
         background-color: #132d76;
         width: 100%;
         height: 100vh;
-        padding-top: 190px;
+        padding-top: 150px;
     } .innerMain {
         color: #FFF;
         height: fit-content;
@@ -131,15 +144,17 @@
     } .innerMain hr {
         color: #FFF;
         height: 5px;
-        width: 75vw;
+        width: 65vw;
         margin: 0 auto;
     }
     .searchBarArea {
-        margin-top: 20px;
-        padding: 0 12vw;
+        /* margin-top: 20px; */
+        margin: 30px 12vw;
+        max-width: 85vw;
     } .searchBarArea .inputArea {
         height: 50px;
         max-width: 700px;
+        margin: 0 auto;
         position: relative;
     } .inputArea i {
         align-content: center;
@@ -153,20 +168,23 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
     } .goTos .section {
         /* border: 1px solid #FFF; */
-        min-width: 230px;
+        min-width: 200px;
     } .section a {
         text-decoration: none;
         color: #FFF;
     } .linkList {
+        margin-top: 15px;
         display: flex;
         flex-direction: column;
         font-size: large;
+        row-gap: 7px;
     } .linkList a {
         text-decoration: none;
         color: #FFF;
+        font-size: medium;
     }
 
     .thisMain {
@@ -210,7 +228,12 @@
             background-color: #132d76;
             width: 100%;
             height: 100vh;
-            padding-top: 160px;
+            padding-top: 120px;
+        } .innerMain hr {
+            color: #FFF;
+            height: 5px;
+            width: 95vw;
+            margin: 0 auto;
         }
     }
 
