@@ -1,16 +1,9 @@
 <script>
     export let currentPage;
-
-  	import { writable } from 'svelte/store'; 
-
+    
     let width;
 
-    let aBtn = writable(
-		localStorage.getItem('aBtn') || "1"
-	);
-	aBtn.subscribe(value => {
-		localStorage.setItem('aBtn', value);
-	});
+    import {aBtn} from '../../scripts/stores.js';
 </script>
 
 <svelte:window bind:innerWidth={width}/>
