@@ -25,7 +25,7 @@
         else if (localStorage.getItem('aBtn') == 8)
             currentPage.set('News');
     }
-</script> 
+</script>
 
 <svelte:window bind:scrollY={y}/>
 <div class="thisMain">
