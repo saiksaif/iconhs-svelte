@@ -12,7 +12,7 @@
 <div class="thisAcademics">
     <WelcomeImg title='Academics' image='https://th.bing.com/th/id/R.7fd1dab2640d2f223a7aaff6e13ac4d1?rik=tjbyURNPkcOyyg&pid=ImgRaw&r=0' />
 
-    <div class="main">
+    <div class="this_Main">
         <NursingPogs />
 
         <Curriculum />

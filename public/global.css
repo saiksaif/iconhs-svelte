@@ -2,6 +2,7 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	background-color: #132d76;
 }
 
 body {
@@ -65,4 +66,16 @@ button:focus {
 
 .colourPrimary {
 	color: #132d76;
+}
+.this_Main {
+	max-width: 1000px;
+	padding: 5vh 5vw;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+.that_Main {
+	max-width: 1000px;
+	padding: 0vh 5vw;
+	margin: 0 auto;
+	overflow-x: hidden;
 }

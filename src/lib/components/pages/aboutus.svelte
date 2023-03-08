@@ -10,7 +10,7 @@
 <div class="thisAbout">
     <WelcomeImg title='About Us' image='https://image.freepik.com/free-vector/about-us-website-banner-concept-with-thin-line-flat-design_56103-96.jpg' />
 
-    <div class="main">
+    <div class="this_Main">
         <div class="messages">
             <div class="messageFromPrincipal">
                 <h3>Message from Principal</h3>

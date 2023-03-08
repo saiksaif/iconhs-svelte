@@ -58,7 +58,7 @@
             <div class="goTos">
                 {#if width >= 1200}
                     <div class="section1 section">
-                        <a href="/" class="h2">About Us</a>
+                        <a href="/" class="h2">Home</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="section2 section">
-                        <a href="/" class="h2">Admission</a>
+                        <a href="/" class="h2">About Us</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="section3 section">
-                        <a href="/" class="h2">Programs</a>
+                        <a href="/" class="h2">Admissions</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="section4 section">
-                        <a href="/" class="h2">Campus</a>
+                        <a href="/" class="h2">Academics</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="section5 section">
-                        <a href="/" class="h2">Student Life</a>
+                        <a href="/" class="h2">Campus</a>
                         <div class="linkList">
                             <a href="/">Lorem</a>
                             <a href="/">Lorem</a>

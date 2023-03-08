@@ -19,13 +19,13 @@
 </div>
 
 <style>
-    
     .welcomeMsg {
         width:100%;
         height: 560px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        background-color: #132d76;
     }
     .WelcomeTitle {
         color: #132d76;

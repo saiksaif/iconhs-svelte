@@ -12,7 +12,7 @@
 <div class="thisAdmission">
     <WelcomeImg title='Admissions' image='https://www.glentreeacademy.com/admissions-open/img/banner-1.jpg' />
 
-    <div class="main">
+    <div class="this_Main">
         <NursingPogs />
         
         <Curriculum />

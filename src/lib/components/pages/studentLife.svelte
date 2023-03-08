@@ -7,6 +7,10 @@
 </svelte:head>
 <div class="thisStudent">
     <WelcomeImg title='Student Life' image='https://www.umt.edu/music/images/current-students/student-life.jpg' />
+
+    <div class="this_Main">
+        hi
+    </div>
 </div>
 
 <style>

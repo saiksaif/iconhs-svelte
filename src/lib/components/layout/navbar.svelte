@@ -2,28 +2,18 @@
     export let currentPage;
 
     import PopupNav from "./popupNav.svelte";
-    import {aBtn} from '../../scripts/stores.js';
+    import {aBtn, syncPageBtn} from '../../scripts/stores.js';
+    import { fade, fly } from 'svelte/transition';
 
     let y;
 
     syncPageBtn(aBtn, currentPage);
-    function syncPageBtn(aBtn, currentPage) {
-        if (localStorage.getItem('aBtn') == 1)
-            currentPage.set('Home');
-        else if (localStorage.getItem('aBtn') == 2)
-            currentPage.set('About');
-        else if (localStorage.getItem('aBtn') == 3)
-            currentPage.set('Admissions');
-        else if (localStorage.getItem('aBtn') == 4)
-            currentPage.set('Contact');
-        else if (localStorage.getItem('aBtn') == 5)
-            currentPage.set('Academics');
-        else if (localStorage.getItem('aBtn') == 6)
-            currentPage.set('Student');
-        else if (localStorage.getItem('aBtn') == 7)
-            currentPage.set('Careers');
-        else if (localStorage.getItem('aBtn') == 8)
-            currentPage.set('News');
+
+    let ApplyBtn = false;
+    $: if (y > 200) {
+        ApplyBtn = true;
+    } else {
+        ApplyBtn = false;
     }
 </script>
 
@@ -59,7 +49,7 @@
             </div> 
         </div>
         <div class="logoBox">
-            <a href="/" on:click={() => currentPage.set("Home")}>
+            <a href="/" class:activeU={localStorage.getItem('aBtn') == 1} on:click={() => aBtn.set("1")} on:click={() => currentPage.set("Home")}>
                 <img src="assets/logo/Logo_m.png" alt="ICONHS Logo">
             </a>
         </div>
@@ -75,10 +65,33 @@
             </div>
         </div>
     </div>
-    
+
+    {#if ApplyBtn}
+        <a on:click={() => aBtn.set("9")} on:click={() => currentPage.set("Apply")} transition:fly="{{ y: -50, duration: 500 }}" href="/" class="applyBtn h3">
+            APPLY
+            <i class="fas fa-caret-right"></i>
+        </a>
+    {/if}    
 </div>
 
 <style>
+    .applyBtn {
+        position: fixed;
+        right: 25px;
+        bottom: 0;
+        top: 0;
+        margin: auto 0;
+
+        background-color: orange;
+        height: fit-content;
+        width: fit-content;
+        text-decoration: none;
+        padding: 10px;
+        border: none;
+        border-radius: 7px;
+        font-weight: 700;
+    }
+
     .activeU {
         --underline-width: 100%;
     }
@@ -199,6 +212,9 @@
         }
         .logoBox a img {
             width: 80px;
+        }
+        .applyBtn {
+            z-index: 1;
         }
     }
 </style>

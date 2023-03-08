@@ -14,6 +14,17 @@
 	import Careers from './lib/components/pages/careers.svelte';
 	import Newsevents from './lib/components/pages/newsevents.svelte';
 	import Contactus from './lib/components/pages/contactus.svelte';
+	// Newer Components
+	import ApplyNow from './lib/components/pages2/applyNow.svelte';
+	import Campus from './lib/components/pages2/campus.svelte';
+	import Faculty from './lib/components/pages2/faculty.svelte';
+	import Library from './lib/components/pages2/library.svelte';
+	import Map from './lib/components/pages2/map.svelte';
+	import PrivacyP from './lib/components/pages2/privacyP.svelte';
+	import StudentP from './lib/components/pages2/studentP.svelte';
+	// Management Components
+	import LoginPg from './lib/components/portalpages/loginPg.svelte';
+	import LoggedIn from './lib/components/portalpages/loggedIn.svelte';
 
 	let currentPage = writable(
 		localStorage.getItem('currentPage') || "Home"
@@ -46,6 +57,26 @@
 			<Newsevents />
 		{:else if $currentPage === "Contact"}
 			<Contactus />
+
+		{:else if $currentPage === "Apply"}
+			<ApplyNow />
+		{:else if $currentPage === "Campus"}
+			<Campus />
+		{:else if $currentPage === "Faculty"}
+			<Faculty />
+		{:else if $currentPage === "Library"}
+			<Library />
+		{:else if $currentPage === "Map"}
+			<Map />
+		{:else if $currentPage === "StudentP"}
+			<StudentP />
+		{:else if $currentPage === "PrivacyP"}
+			<PrivacyP />
+			
+		{:else if $currentPage === "Login"}
+			<LoginPg />
+		{:else if $currentPage === "LoggedIn"}
+			<LoggedIn />
 		{/if}
 	</div>
 	
